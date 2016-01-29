@@ -16,8 +16,10 @@
   "author": "Sundeep Mallya",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.4",
     "gulp": "^3.9.0",
-    "gulp-nodemon": "^2.0.6"
+    "gulp-nodemon": "^2.0.6",
+    "mongoose": "^4.3.7"
   }
 }
