@@ -53,7 +53,7 @@ bookRouter.route('/Books')
                         var book = new Book(req.body);
                         book.save();
                         console.log(book);
-                        res.status(201).send(book);
+                        res.status(201).json(book);
                     }
                     else {
                         res.status(400).send('Book with same Title exists');
@@ -89,7 +89,7 @@ bookRouter.use('/Books/:bookId', function(req, res, next) {
 //POST method is not allowed here
 bookRouter.route('/Books/:bookId')
     .get(function(req, res) {
-        res.json(req.book);
+        res.status(200).json(req.book);
     })
     .post(methodNotImplemented)
     .put(function(req, res) {
@@ -104,6 +104,9 @@ bookRouter.route('/Books/:bookId')
                 console.log(req.book);
                 req.book.save();
                 res.json(req.book);
+        }
+        else {
+            res.sendStatus(400);
         }
     })
     .delete(function(req, res) {
