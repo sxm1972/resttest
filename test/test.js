@@ -52,7 +52,6 @@ describe('Book API tests', function() {
 
                     res.status.should.equal(201);
                     //console.log(res.body);
-                    var bodyjsonlength = res.body.length;
                     res.body.should.have.property('_id');
                     res.body.title.should.equal('Moby Dick');
                     res.body.author.should.equal('Herman Melville');
@@ -71,6 +70,7 @@ describe('Book API tests', function() {
             request(url)
                 .post('/api/Books')
                 .send(bodyjson)
+                .expect("Content-type", /text/)
                 .expect(400)
                 .end(function(err, res) {
                     if (err) {
@@ -78,8 +78,8 @@ describe('Book API tests', function() {
                     }
 
                     res.status.should.equal(400);
-                    ////console.log(res.body.toString());
-                    //assert.equal(res.body, 'Book with same Title exists', 'Error returned is not correct');
+                    //console.log(res);
+                    assert.equal(res.text, 'Book with same Title exists', 'Error returned is not correct');
                     done();
                 });
         });
@@ -101,7 +101,7 @@ describe('Book API tests', function() {
 
                     res.status.should.equal(400);
                     ////console.log(res.body.toString());
-                    //assert.equal(res.body, 'Book with same Title exists', 'Error returned is not correct');
+                    assert.equal(res.text, 'Book should have Title and Author', 'Error returned is not correct');
                     done();
                 });
         });
@@ -123,7 +123,7 @@ describe('Book API tests', function() {
 
                     res.status.should.equal(400);
                     ////console.log(res.body.toString());
-                    //assert.equal(res.body, 'Book with same Title exists', 'Error returned is not correct');
+                    assert.equal(res.text, 'Book should have Title and Author', 'Error returned is not correct');
                     done();
                 });
         });        
@@ -143,6 +143,45 @@ describe('Book API tests', function() {
                 });
         });
     });
+    describe('After adding books listing', function() {
+        it('should return all books', function(done) {
+            request(url)
+                .get('/api/Books')
+                .expect("Content-type", /json/)
+                .expect(200)
+                .end(function(err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.equal(200);
+                    //console.log(res.body);
+                    var bodyjsonlength = res.body.length;
+                    assert.equal(bodyjsonlength, 1, 'One book should be added');
+                    done();
+                });
+        });
+        it('should return specific book with id', function(done) {
+            var getstring = '/api/Books/' + bookid;
+            request(url)
+                .get(getstring)
+                .expect("Content-type", /json/)
+                .expect(200)
+                .end(function(err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.equal(200);
+                    //console.log(res.body);
+                    res.body.should.have.property('_id');
+                    res.body._id.should.equal(bookid);
+                    res.body.title.should.equal('Moby Dick');
+                    res.body.author.should.equal('Herman Melville');
+                    done();
+                });
+        });        
+    });    
     describe('Updating a book', function() {
         it('should return the details of the book added', function(done) {
             var bodyjson = {
@@ -216,7 +255,7 @@ describe('Book API tests', function() {
                     res.status.should.equal(200);
                     res.body.should.have.property('_id');
                     res.body._id.should.equal(bookid);
-                    res.body.genre.should.equal('Literature'); // this is what we changed using the PUT request
+                    res.body.genre.should.equal('Literature'); // this is what we changed using the PATCH request
                     done();
                 });
         });    
@@ -237,6 +276,7 @@ describe('Book API tests', function() {
                     }
 
                     res.status.should.equal(200);
+                    res.text.should.equal('Removed book with Id: ' + bookid);
                     bookid = '';
                     done();
                 });
