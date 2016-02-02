@@ -283,4 +283,33 @@ describe('Book API tests', function() {
         });
     });
 
+    describe('Populate', function() {
+        it.only('should add the books from a file', function(done) {
+            var books = require('./books.json');
+            if (!books.length)
+                throw "Could not load books";
+            console.log (books)    ;
+            books.forEach(function(book) {
+                console.log(book);
+                request(url)
+                    .post('/api/Books')
+                    .send(book)
+                    .expect("Content-type", /json/)
+                    .expect(201)
+                    .end(function(err, res) {
+                        if (err) {
+                            throw err;
+                        }
+
+                        res.status.should.equal(201);
+                        //console.log(res.body);
+                        res.body.should.have.property('_id');
+                        res.body.title.should.equal(book.title);
+                        res.body.author.should.equal(book.author);
+                        bookid = res.body._id;
+                        done();
+                    });
+            });
+        });
+    });
 });

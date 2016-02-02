@@ -1,0 +1,50 @@
+[
+{
+"title": "Moby Dick",
+"author": "Herman Melville",
+"genre": "Literature",
+"read": false
+},
+{
+"title": "The Old Man and the Sea",
+"author": "Ernest Hemingway",
+"genre": "Literature",
+"read": false
+},
+{
+"title": "Nicholas Nickleby",
+"author": "Charles Dickens",
+"genre": "Literature",
+"read": false
+},
+{
+"title": "Oliver Twist",
+"author": "Charles Dickens",
+"genre": "Literature",
+"read": false
+},
+{
+"title": "Pride and Prejudice",
+"author": "Jane Austen",
+"genre": "Literature",
+"read": false
+},
+{
+"title": "The Count of Monte Cristo",
+"author": "Alexander Dumas",
+"genre": "Literature",
+"read": false
+},
+{
+"title": "War and Peace",
+"author": "Leo Tolstoy",
+"genre": "Literature",
+"read": false
+},
+{
+"title": "Anna Karenina",
+"author": "Leo Tolstoy",
+"genre": "Literature",
+"read": false
+}
+]

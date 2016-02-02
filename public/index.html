@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtrl">
+    <head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="myangular.js"></script>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<h1> Welcome to the Books page</h1>
+<span>
+    <table>
+        <tr>
+            <td>Title:</td><td><input type="text" ng-model="addbookTitle"></td>
+            <td>Author:</td><td><input type="text" ng-model="addbookAuthor"></td>
+            <td>Genre:</td><td><input type="text" ng-model="addbookGenre"></td>
+            <td>Read:</td><td><input type="checkbox" ng-model="addbookRead"></td>
+        </tr>
+        <tr>
+            <td><button ng-click="onSubmit()">Submit </button></td>
+        </tr>
+        <tr><td>Message: </td><td>{{message}}</td></tr>
+    </table>
+ <br>
+
+</span>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<table>
+  <tr>
+    <th>Book Title</th>
+    <th>Author</th>
+    <th>Genre</th>
+    <th>Read</th>
+    <th>Actions</th>
+  </tr>
+  <tr ng-repeat="book in books">
+    <td>{{book.title}}</td>
+    <td>{{book.author}}</td>
+    <td>{{book.genre}}</td>
+    <td>{{book.read}}</td>
+    <td><button ng-click=editBook(book)>Edit</button><button ng-click=deleteBook(book)>Delete</button><button ng-click=markasRead(book)>Mark as Read</button></td>
+  </tr>
+</table>
+
+<body>
+
+
+</body>
+</html>

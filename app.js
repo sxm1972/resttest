@@ -8,14 +8,23 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 app.get('/', function(req, res) {
-    res.send('Welcome to resttest API!');
+    res.sendFile(__dirname + '/public/index.html');
 });
+
 
 var urlencodedparser = bodyparser.urlencoded({
     extended: true
 });
-app.use(urlencodedparser);
 
+app.use(urlencodedparser);
+app.use(express.static(__dirname + '/public'));
+
+// Log the request method and UTC time for all requests that come in
+app.use(function(req, res, next) {
+    var date = new Date(Date.now());
+    console.log(req.method + ' : Time: ', date.toISOString().replace(/T/, ' '));
+    next();
+});
 var jsonparser = bodyparser.json();
 if (!jsonparser) {
     console.log('could not create json parser');
