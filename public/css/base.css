@@ -1,0 +1,354 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none
+}
+blockquote {
+  quotes: none
+}
+blockquote:before,
+blockquote:after {
+  content: '';
+  content: none;
+}
+del {
+  text-decoration: line-through
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a img {
+  border: none
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  background-color: #6496c8;
+  color: #505050;
+  font-family: "Open Sans",sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.8;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  font-weight: 700;
+  font-family: "Bitter",serif;
+}
+a {
+  text-decoration: none;
+  color: #6496c8;
+}
+a:hover {
+  color: #3b70a5
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+#main {
+  background-color: #fff;
+  padding: 30px 0;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.info-bar {
+  background-color: #3b70a5;
+  text-align: center;
+}
+.info-bar a.icon {
+  margin: 0 5px;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 20px;
+  position: relative;
+}
+.info-bar a.icon[data-title]:hover:after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20px;
+  content: attr(data-title);
+  padding: 5px 10px;
+  background-color: #3b70a5;
+  font-family: "Open Sans",sans-serif;
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+}
+header .branding {
+  padding: 30px 0;
+  background-color: #6496c8;
+}
+header .branding .container {
+  padding: 0 30px 0 90px
+}
+header .social {
+  float: left;
+  width: 100%;
+  height: 60px;
+  text-align: right;
+  line-height: 60px;
+}
+header .social a {
+  display: inline-block;
+  text-indent: -9999px;
+  font-size: 0;
+  margin: 15px 0;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  margin-left: 5px;
+  background-image: url("../img/core/social-dark.png");
+  background-image: url("../img/core/social-dark.svg"),none;
+  background-size: 180px 30px;
+}
+header .social a.fb {
+  background-position: 0 0
+}
+header .social a.twitter {
+  background-position: -30px 0
+}
+header .social a.googleplus {
+  background-position: -60px 0
+}
+header .social a.rss {
+  background-position: -90px 0
+}
+header .social a.email {
+  background-position: -120px 0
+}
+header .social a.search {
+  background-position: -150px 0
+}
+header .social a:hover {
+  opacity: 0.4
+}
+header .logo {
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-left: -60px;
+}
+header .site-title {
+  background-color: #3b70a5;
+  padding: 10px 30px;
+  text-align: left;
+}
+header .site-title h1 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  color: #eeeeee;
+}
+footer {
+  padding: 30px 0
+}
+footer .container {
+  padding: 0 10px
+}
+footer aside {
+  width: 33.3333%;
+  float: left;
+}
+footer aside.logo {
+  text-align: right
+}
+footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+footer ul a {
+  color: #fff
+}
+footer ul a:hover {
+  color: #afc9e3
+}
+footer .copyright {
+  margin-top: 30px;
+  text-align: center;
+}
+footer .copyright span {
+  color: #fff
+}
+footer .copyright a {
+  color: #afc9e3
+}
+@media all and (max-width: 960px) { 
+  footer aside {
+    width: 100%;
+    float: none;
+    margin-bottom: 15px;
+  }
+  footer aside:last-child {
+    margin-bottom: 0
+  }
+  footer aside.logo {
+    text-align: center
+  }
+  footer ul {
+    text-align: center
+  }
+  footer ul li {
+    display: inline-block
+  }
+  footer ul li:after {
+    content: "\2022"
+  }
+  footer ul li:last-child:after {
+    content: none
+  }
+  footer ul li a {
+    margin: 0 10px
+  }
+}
+@media all and (max-width: 400px) { 
+  header .branding {
+    padding: 15px 0
+  }
+  header .branding .container {
+    padding: 0 30px
+  }
+  header .social {
+    float: none;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+  }
+  header .social a {
+    margin: 0 5px
+  }
+  header .logo {
+    float: none;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}
+
+table {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 75%;
+}
+
+th {
+  height: 30px;
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+body.style-1 a {
+  background-position: 0 0
+}
+
+body.style-1 a:hover {
+  opacity: 0.4
+}

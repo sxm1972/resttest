@@ -1,58 +1,78 @@
 <!DOCTYPE html>
 <html ng-app="myApp" ng-controller="myCtrl">
-    <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="myangular.js"></script>
-<style>
-table, th, td {
-    border: 1px solid black;
-}
-</style>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="myangular.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/font-awesome/font-awesome.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<h1> Welcome to the Books page</h1>
-<span>
-    <table>
-        <tr>
-            <td>Title:</td><td><input type="text" ng-model="addbookTitle"></td>
-            <td>Author:</td><td><input type="text" ng-model="addbookAuthor"></td>
-            <td>Genre:</td><td><input type="text" ng-model="addbookGenre"></td>
-            <td>Read:</td><td><input type="checkbox" ng-model="addbookRead"></td>
-        </tr>
-        <tr>
-            <td><button ng-click="onSubmit()">Submit </button></td>
-        </tr>
-        <tr><td>Message: </td><td>{{message}}</td></tr>
-    </table>
- <br>
-
-</span>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<table>
-  <tr>
-    <th>Book Title</th>
-    <th>Author</th>
-    <th>Genre</th>
-    <th>Read</th>
-    <th>Actions</th>
-  </tr>
-  <tr ng-repeat="book in books">
-    <td>{{book.title}}</td>
-    <td>{{book.author}}</td>
-    <td>{{book.genre}}</td>
-    <td>{{book.read}}</td>
-    <td><button ng-click=editBook(book)>Edit</button><button ng-click=deleteBook(book)>Delete</button><button ng-click=markasRead(book)>Mark as Read</button></td>
-  </tr>
-</table>
 
 <body>
+    <header>
+        <div class="site-title">
+            <div class="container">
+                <h2>Welcome to the Books page</h2>
+            </div>
+        </div>
+        <!-- /.site-title -->
+    </header>
 
+    <div id="main">
+        <div class="container">
+            <table class="style-1 clearfix">
+                <tr>
 
-</body>
+                    <td>Title:</td><td><input type="text" ng-model="addbookTitle"></td>
+                    <td>Author:</td><td><input type="text" ng-model="addbookAuthor"></td>
+                    <td>Genre:</td><td><input type="text" ng-model="addbookGenre"></td>
+                    <td>Read:</td><td><input type="checkbox" ng-model="addbookRead"></td>
+                </tr>
+                <tr>
+                    <td><button ng-click="onSubmit()" class="style-1">Submit </button></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Message: </td>
+                    <td>{{message}}</td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+            </table>
+            <br>
+
+        </div>
+    </div>
+  
+    <section class="gradient style-1">
+        <table>
+            <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Read</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="book in books">
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.genre}}</td>
+                <td><img src="css/img/check.svg" alt="Edit" ng-show="book.read==true"></td>
+                <td>
+                    <button ng-click=editBook(book) class="gradient"><img src="css/img/pencil.svg" alt="Edit"></button>
+                    <button ng-click=deleteBook(book) class="gradient"><img src="css/img/close.svg" alt="Delete"></button>
+                    <button ng-click=markasRead(book) class="gradient"><img src="css/img/check-box.svg" alt="Mark as Read"></button>
+                </td>
+            </tr>
+        </table>
+    </section>
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <span>&copy; 2016, Sundeep Mallya<br>
+       </span>
+      </div>
+    </div>
+  </footer><!-- /footer -->
 </html>
